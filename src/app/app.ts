@@ -27,7 +27,7 @@ import {Home} from './home/home';
     {path: '/about', name: 'About', loader: () => require('es6-promise!./about/about')('About')},
 ])
 export class App {
-    name = 'Angular 2 Webpack Starter';
+    name = 'App';
     url = 'https://twitter.com/AngularClass';
     date:Date = new Date();
     showMenu = false;
