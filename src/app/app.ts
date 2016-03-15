@@ -2,7 +2,12 @@
  * Angular 2 decorators and services
  */
 import {Component} from 'angular2/core';
+import {RouteConfig, Router} from 'angular2/router';
 import {Alert, DATEPICKER_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import {NgClass} from 'angular2/common';
+
+import './app.scss'
+import {Home} from './home/home';
 
 /*
  * App Component
@@ -10,34 +15,23 @@ import {Alert, DATEPICKER_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
  */
 @Component({
     selector: 'app',
-    pipes: [ ],
-    providers: [ ],
-    directives: [ Alert ],
-    styles: [`
-    nav ul {
-      display: inline;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 60px;
-    }
-    nav li {
-      display: inline;
-    }
-    nav li.active {
-      background-color: lightgray;
-    }
-  `],
-    template: `
-    <div>asd</div>
-    <div> {{ date.toDateString() }} </div>
-    <alert type="info">Hello from ng2-bootstrap  {{ date.toDateString() }}</alert>
-  `
+    pipes: [],
+    providers: [],
+    directives: [Alert, NgClass],
+    template: require('./app.html')
 })
+@RouteConfig([
+    {path: '/', name: 'Index', component: Home, useAsDefault: true},
+    {path: '/home', name: 'Home', component: Home},
+    // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
+    {path: '/about', name: 'About', loader: () => require('es6-promise!./about/about')('About')},
+])
 export class App {
     name = 'Angular 2 Webpack Starter';
     url = 'https://twitter.com/AngularClass';
-    date: Date = new Date();
+    date:Date = new Date();
+    showMenu = false;
+
     constructor() {
     }
 }

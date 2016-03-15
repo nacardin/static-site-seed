@@ -11,7 +11,6 @@ var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 var HMR = helpers.hasProcessFlag('hot');
 
 var metadata = {
-  title: 'Static site with Angular2 and TypeScript',
   baseUrl: '/',
   host: 'localhost',
   port: 3000,
@@ -66,7 +65,11 @@ module.exports = {
       { test: /\.css$/,   loader: 'raw-loader' },
 
       // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader', exclude: [ helpers.root('src/index.html') ] }
+      { test: /\.html$/,  loader: 'raw-loader', exclude: [ helpers.root('src/index.html') ] },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      }
 
     ]
   },

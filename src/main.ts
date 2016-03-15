@@ -7,7 +7,7 @@ import {
     ROUTER_PROVIDERS,
     ROUTER_DIRECTIVES,
     LocationStrategy,
-    HashLocationStrategy
+    PathLocationStrategy
 } from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 import {HTTP_PROVIDERS} from 'angular2/http';
@@ -27,7 +27,7 @@ const APPLICATION_PROVIDERS = [
     ...HTTP_PROVIDERS,
     ...ROUTER_PROVIDERS,
     ...FORM_PROVIDERS,
-    ngCore.provide(LocationStrategy, { useClass: HashLocationStrategy })
+    ngCore.provide(LocationStrategy, { useClass: PathLocationStrategy })
 ];
 
 // application_directives: directives that are global through out the application

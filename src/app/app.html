@@ -1,0 +1,37 @@
+<header>
+    <h1>Hello {{ name }}</h1>
+    <nav class="navbar navbar-light bg-faded">
+        <button class="navbar-toggler hidden-sm-up" type="button" (click)="showMenu=!showMenu">
+            &#9776;
+        </button>
+        <div class="collapse navbar-toggleable-xs" [ngClass]="{collapse: !showMenu}">
+            <div class="clearfix">
+                <a class="navbar-brand" href="#">Navbar</a>
+            </div>
+        <ul class="nav nav-pills nav-stacked">
+            <li class="nav-item active" router-active>
+                <a class="nav-link" [routerLink]=" ['Index'] ">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" router-active>
+                <a class="nav-link" [routerLink]=" ['Home'] ">Features</a>
+            </li>
+            <li class="nav-item" router-active>
+                <a class="nav-link" [routerLink]=" ['About'] ">Pricing</a>
+            </li>
+            <li class="nav-item" router-active>
+                <a class="nav-link" [routerLink]=" ['About'] ">About</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer>
+    WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
+
+    <div>
+        <img [src]="angularclassLogo" width="10%">
+    </div>
+</footer>
