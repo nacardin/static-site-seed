@@ -1,2 +1,13 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+.nav-stacked {
+  .nav-item {
+    display: block;
+    float: none;
+
+    + .nav-item {
+      margin-top: .2rem;
+      margin-left: 0;
+    }
+  }
+}
